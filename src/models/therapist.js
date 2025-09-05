@@ -16,29 +16,29 @@ export default (sequelize, DataTypes) => {
   Therapist.init({
     name: {
       type:DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     educational_qualification: {
       type:DataTypes.TEXT,
-      allowNull: false
+      allowNull: true
     },
     experience_years: {
       type:DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate:{
         min: 1
       }
     },
     price_per_session: {
       type:DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate:{
         min: 1
       }
     },
     session_duration: {
       type:DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate:{
         min: 1
       }
@@ -50,7 +50,8 @@ export default (sequelize, DataTypes) => {
         model: "Users",
         key: "id"
       },
-      onDelete: "CASCADE"
+      onDelete: "CASCADE",
+      unique: true
     }
   }, {
     sequelize,

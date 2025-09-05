@@ -12,6 +12,7 @@ import repository from '../repositories/index.js';
 
 const userRepository = new repository.UserRepository;
 const patientRepository = new repository.PatientRepository;
+const therapistRepository = new repository.TherapistsRepository;
 
 export async function register({name,email,password,role}){
   console.log("inside register auth service");
@@ -21,6 +22,8 @@ export async function register({name,email,password,role}){
 
       if(role==="patient"){
         await patientRepository.create({userId: user.id});
+      }else if(role==="therapist"){
+        await therapistRepository.create({userId: user.id});
       }
 
       return user;

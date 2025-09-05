@@ -1,4 +1,4 @@
 export const ROLES = {
     PATIENT: "patient",
-    THERAPIEST: "therapiest"
+    THERAPIEST: "therapist"
 }

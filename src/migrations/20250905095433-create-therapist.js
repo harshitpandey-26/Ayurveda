@@ -10,29 +10,29 @@ export async function up(queryInterface, Sequelize) {
     },
     name: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
     educational_qualification: {
       type: Sequelize.TEXT,
-      allowNull: false
+      allowNull: true
     },
     experience_years: {
       type: Sequelize.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate:{
         min:1
       }
     },
     price_per_session: {
       type: Sequelize.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate:{
         min:1
       }
     },
     session_duration: {
       type: Sequelize.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate:{
         min:1
       }
@@ -44,7 +44,8 @@ export async function up(queryInterface, Sequelize) {
         model: "Users",
         key: "id"
       },
-      onDelete: "CASCADE"
+      onDelete: "CASCADE",
+      unqiue: true
     },
     createdAt: {
       allowNull: false,

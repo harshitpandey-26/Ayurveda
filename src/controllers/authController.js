@@ -6,7 +6,7 @@ import config from "../config/index.js";
 
 /**
  * POST - /auth/register
- * BODY - name, email, password, role[Patient | Therapiest]
+ * BODY - name, email, password, role[Patient | Therapist]
  */
 export const register = asyncHandler(async (req, res) => {
   console.log("inside auth controller");

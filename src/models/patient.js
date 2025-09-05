@@ -16,19 +16,19 @@ export default (sequelize, DataTypes) => {
   Patient.init({
     age: {
       type:DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     gender: {
       type:DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     allergies: {
       type:DataTypes.TEXT,
-      allowNull: false
+      allowNull: true
     },
     conditions: {
       type:DataTypes.TEXT,
-      allowNull: false
+      allowNull: true
     },
     userId: {
       type:DataTypes.INTEGER,
@@ -37,7 +37,8 @@ export default (sequelize, DataTypes) => {
         model: "Users",
         key: "id"
       },
-      onDelete: "CASCADE"
+      onDelete: "CASCADE",
+      unique: true
     }
   }, {
     sequelize,

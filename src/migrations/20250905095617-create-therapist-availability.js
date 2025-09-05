@@ -15,7 +15,7 @@ export async function up(queryInterface, Sequelize) {
         model: "Therapists",
         key: "id",
       },
-      onDelete: "CASCADE",
+      onDelete: "CASCADE"
     },
     day_of_week: {
       type: Sequelize.STRING,

@@ -17,12 +17,13 @@ export async function updateProfile(userId, data) {
       );
     }
 
-    let patient = await patientRepository.get(userId);
+    let patient = await patientRepository.getByUserId(userId);
 
     if (!patient) {
       patient = await patientRepository.create({ userId, ...data });
     } else {
-      patient = await patient.update(data);
+      await patientRepository.updateByUserId(userId, data);
+      patient = await patientRepository.getByUserId(userId);
     }
 
     return patient;

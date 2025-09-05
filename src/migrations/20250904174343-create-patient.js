@@ -10,19 +10,19 @@ export async function up(queryInterface, Sequelize) {
     },
     age: {
       type: Sequelize.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     gender: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
     allergies: {
       type: Sequelize.TEXT,
-      allowNull: false
+      allowNull: true
     },
     conditions: {
       type: Sequelize.TEXT,
-      allowNull: false
+      allowNull: true
     },
     userId: {
       type: Sequelize.INTEGER,
@@ -31,7 +31,8 @@ export async function up(queryInterface, Sequelize) {
         model: "Users",
         key: "id"
       },
-      onDelete: "CASCADE"
+      onDelete: "CASCADE",
+      unique: true
     },
     createdAt: {
       allowNull: false,
