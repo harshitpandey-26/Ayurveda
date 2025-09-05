@@ -3,3 +3,4 @@ node_modules
 combined.logs
 src/config/config.json
 logs
+notes.txt
