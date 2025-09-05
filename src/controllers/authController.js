@@ -4,6 +4,10 @@ import { StatusCodes } from "http-status-codes";
 import { successResponse } from "../utils/common/success-response.js";
 import config from "../config/index.js";
 
+/**
+ * POST - /auth/register
+ * BODY - name, email, password, role[Patient | Therapiest]
+ */
 export const register = asyncHandler(async (req, res) => {
   console.log("inside auth controller");
   const { name, email, password, role } = req.body;
@@ -24,6 +28,10 @@ export const register = asyncHandler(async (req, res) => {
   );
 });
 
+/**
+ * POST - /auth/login
+ * BODY - email, password
+ */
 export const login = asyncHandler(async (req, res) => {
   console.log("inside login controller");
   const { email, password } = req.body;

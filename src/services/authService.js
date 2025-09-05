@@ -11,12 +11,18 @@ import {
 import repository from '../repositories/index.js';
 
 const userRepository = new repository.UserRepository;
+const patientRepository = new repository.PatientRepository;
 
 export async function register({name,email,password,role}){
   console.log("inside register auth service");
     try {
       const hashedPassword = await bcrypt.hash(password,10);
       const user = await userRepository.create({name,email,password:hashedPassword,role});
+
+      if(role==="patient"){
+        await patientRepository.create({userId: user.id});
+      }
+
       return user;
     } catch (error) {
       if (

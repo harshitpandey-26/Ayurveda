@@ -14,6 +14,7 @@ export default (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasOne(models.Patient,{foreignKey: "userId"})
     }
   }
   User.init({

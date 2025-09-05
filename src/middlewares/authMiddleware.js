@@ -2,7 +2,8 @@ import jwt from "jsonwebtoken";
 
 import config from '../config/index.js';
 
-export function authMiddleware(req, res, next) {
+export default function authMiddleware(req, res, next) {
+  console.log("inside auth middleware");
   try {
     // "Authorization: Bearer <token>"
     const authHeader = req.headers["authorization"];
@@ -23,7 +24,7 @@ export function authMiddleware(req, res, next) {
     // Attach user info to request object
     req.user = decoded;
 
-    config.logger.info(`User authenticated: ${decoded.email || decoded.id}`);
+    config.logger.info(`User authenticated: ${decoded.id || decoded.email || decoded.role}`);
     
     next();
   } catch (err) {
